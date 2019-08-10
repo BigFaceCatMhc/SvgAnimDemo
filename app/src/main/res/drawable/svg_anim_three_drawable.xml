@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:drawable="@drawable/svg_picture_three"
+    tools:ignore="NewApi">
+
+    <target
+        android:name="top_container"
+        android:animation="@animator/svg_three_anim_top_container"/>
+
+    <target
+        android:name="bottom_container"
+        android:animation="@animator/svg_three_anim_bottom_container"/>
+    <target
+        android:name="stem_container"
+        android:animation="@animator/svg_three_anim_stem_container"/>
+    <!--
+
+
+    <target
+        android:name="menu"
+        android:animation="@anim/anim_menu"/>
+    -->
+
+</animated-vector>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/svg_picture_1">
+    <target
+        android:animation="@animator/svg_color_gradient_anim_1"
+        android:name="background" />
+    <target
+        android:animation="@animator/svg_color_gradient_anim_2"
+        android:name="duihao" />
+</animated-vector>

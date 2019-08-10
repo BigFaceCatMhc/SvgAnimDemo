@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SvgAnim</string>
+    <string name="check_path">M4,10 C10,16 10,16 10,16 C13,13 13,13 13,13 C16,10 16,10 16,10 C20,6 20,6 20,6</string>
+    <string name="circle_path">M4,12 C4,7.6 7.6,4 12,4 C16.4,4 20,7.6 20,12 C20,16.4 16.4,20 12,20 C 7.6,20 4,16.4 4,12</string>
+</resources>

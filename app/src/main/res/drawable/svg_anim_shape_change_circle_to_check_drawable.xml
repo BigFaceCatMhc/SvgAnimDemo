@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/svg_picture_shape_change_circle">
+    <target
+        android:animation="@animator/svg_shape_change_anim_circle_to_check"
+        android:name="circle" />
+
+</animated-vector>

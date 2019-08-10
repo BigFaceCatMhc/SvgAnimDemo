@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/check"
+        android:drawable="@drawable/svg_picture_shape_change_check"
+        android:state_checked="true" />
+    <item
+        android:id="@+id/circle"
+        android:drawable="@drawable/svg_picture_shape_change_circle"
+        android:state_checked="false" />
+
+    <transition
+        android:drawable="@drawable/svg_anim_shape_change_check_to_circle_drawable"
+        android:fromId="@id/check"
+        android:toId="@id/circle" />
+
+    <transition
+        android:drawable="@drawable/svg_anim_shape_change_circle_to_check_drawable"
+        android:fromId="@id/circle"
+        android:toId="@id/check" />
+</animated-selector>

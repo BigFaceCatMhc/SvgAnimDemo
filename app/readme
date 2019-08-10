@@ -1,0 +1,74 @@
+使用版本说明：
+    谷歌在Android L(5.0)引入了矢量图,对应的api版本是21,主要涉及的类有2个，分别是 VectorDrawable
+    and AnimatedVectorDrawable
+    Support Library对于5.0之前的版本也提供了兼容的解决方案，分别是support-vector-drawable和animated-vector-drawable，对应的类是VectorDrawableCompat
+    和 AnimatedVectorDrawableCompat
+    VectorDrawableCompat最低兼容api7, AnimatedVectorDrawableCompat最低兼容到api11。
+
+
+    使用SVG动画的步骤：
+    1.在drawable文件夹下创建svg图片文件：<vector>...</vector>
+
+    2.在animator文件夹下定义属性动画文件：<objectAnimator>...</objectAnimator>
+
+    3.在drawable文件夹下定义关联svg图片和属性动画的的资源文件：<animated-vector>...</animated-vector>
+
+    4.在布局文件中使用ImageView，例如：
+        <ImageView
+                android:id="@+id/color_gradient_anim"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/svg_anim_color_gradient_drawable"
+                />
+    其中app:srcCompat对应的drawable资源文件就是第3步生成的资源文件。
+
+    5.在程序中获取ImageView的drawable，并执行。例如：
+     ((AnimatedVectorDrawable) mSvgColorAnimView.getDrawable()).start();
+
+
+     目前遗留问题：
+     1.动画执行完之后，如果想要恢复到初始状态，
+     API 23以上可以执行
+     ((AnimatedVectorDrawable) mSvgColorAnimView.getDrawable()).reset();
+     API 23以下暂时没找到好的解决办法。
+
+     2.动画执行过程中的监听回调，
+     API 23以上可以执行
+     ((AnimatedVectorDrawable) mSvgColorAnimView.getDrawable()).registerAnimationCallback()
+     API 23以下暂时没找到好的解决办法。
+
+
+
+
+     那么通用的属性：
+
+        android:duration：设置动画持续时间
+        android:fillAfter：如果fillAfter设为true，则动画执行后，控件将停留在动画结束的状态
+        android:fillBefore：如果fillBefore设为true，则动画执行后，控件将回到动画开始的状态
+        android:startOffset(long startOffset)：设置动画执行之前等待的时间（单位：毫秒）
+        android:repeatCount(int repeatCount)：设置动画重复的次数
+        android:interpolator：设置动画的变化速度，其值： ｛
+
+          android:interpolator="@android:anim/accelerate_decelerate_interpolator"：先加速，后减速
+
+          android:interpolator="@android:anim/accelerate_interpolator"：加速
+
+          android:interpolator="@android:anim/decelerate_interpolator"：减速
+
+          android:interpolator="@android:anim/cycle_Interpolator"：动画循环播放特定次数，速率改变沿着正弦曲线
+
+          android:interpolator="@android:anim/linear_Interpolator"：匀速
+
+         ｝
+
+
+    参考链接：https://www.jianshu.com/p/00f1f6bb96b3
+
+
+    更多效果：https://www.jianshu.com/p/4707a4738a51
+    
+    VectAlign 是github上的一个开源项目，主要功能就是通过计算修改两个SVG的路径使其可以无缝切换。
+    https://github.com/bonnyfone/vectalign
+
+    一个非常棒的矢量动画库RichPath.
+    https://github.com/tarek360/RichPath
